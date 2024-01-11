@@ -1,0 +1,413 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="{% static 'favicon.png' %}" rel="icon" />
+    <title>Train Booking Invoice - Koice</title>
+    <meta name="author" content="harnishdesign.net" />
+
+    <!-- Web Fonts
+  ======================= -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
+      type="text/css"
+    />
+
+    <!-- Stylesheet
+  ======================= -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/bootstrap.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/invoice.css' %}"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <style>
+      /* Laber Table*/
+      .Labour_table tr td:nth-child(2) {
+        max-width: 100px !important;
+        width: 100px !important;
+      }
+
+      .Labour_table tr td:nth-child(3) {
+        max-width: 187px !important;
+        width: 187px !important;
+        text-align: end !important;
+      }
+
+      /* END */
+
+      /* Parts Table*/
+      .Parts_table tr td:nth-child(2) {
+        max-width: 93px !important;
+        width: 93px !important;
+      }
+
+      .Parts_table tr td:nth-child(3) {
+        max-width: 170px !important;
+        width: 170px !important;
+        text-align: center !important;
+      }
+
+      .Parts_table tr td:nth-child(4) {
+        max-width: 60px !important;
+        width: 60px !important;
+      }
+
+      .Parts_table tr td:nth-child(5) {
+        max-width: 168px !important;
+        width: 168px !important;
+        text-align: center !important;
+      }
+
+      .Parts_table tr td:nth-child(6) {
+        max-width: 80px !important;
+        width: 80px !important;
+        text-align: center !important;
+      }
+
+      .Parts_table tr td:nth-child(1) {
+        max-width: 137px;
+        width: 137px !important;
+      }
+
+      /* Button*/
+
+      .Labour_table_add {
+        margin-bottom: 15px;
+        border-radius: 50px;
+        border: unset;
+        padding: 5px 11px;
+        background-color: #beb7b7;
+      }
+
+      .Parts_table_add {
+        margin-bottom: 15px;
+        border-radius: 50px;
+        border: unset;
+        padding: 5px 11px;
+        background-color: #beb7b7;
+      }
+
+      input {
+        background-color: unset !important;
+        border: unset;
+        text-align: center !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Container -->
+    <div class="container-fluid invoice-container">
+      <!-- Header -->
+      <header>
+        <div class="row align-items-center">
+          <div class="col-sm-12 mb-3 mb-sm-0">
+            <h4>EASY FIT AUTO LTD</h4>
+          </div>
+          <div class="col-sm-12 text-start mt-4">
+            <p class="mb-0 text-dark">1 Standford Street</p>
+            <p class="mb-0 text-dark">Southampton</p>
+            <p class="mb-0 text-dark">{{ factors.make }}</p>
+          </div>
+        </div>
+        <hr />
+      </header>
+      <main>
+        <div class="row g-3">
+          <div class="col-md-6 col-lg-7">
+            <p class="mb-0 text-dark">
+              {{ factors.Firstname }} {{ factors.Lastname }}
+            </p>
+            <p class="mb-0 text-dark">Mobile: {{ factors.PhoneNumber }}</p>
+          </div>
+          <div class="col-md-6 col-lg-5">
+            <div class="table-responsive">
+              <table class="table text-1 table-sm p-0 border-0">
+                <tbody class="invoice">
+                  <tr>
+                    <td class="p-0"><h5>Invoice</h5></td>
+                    <td class="p-0"><h5>1811</h5></td>
+                  </tr>
+                  <tr>
+                    <td class="p-0">Invoice Date:</td>
+                    <td class="p-0">08/12/2022</td>
+                  </tr>
+                  <tr>
+                    <td class="p-0">Account No:</td>
+                    <td class="p-0">ZZZ091</td>
+                  </tr>
+                  <tr>
+                    <td class="p-0">Order Ref:</td>
+                    <td class="p-0"></td>
+                  </tr>
+                  <tr>
+                    <td class="p-0">Date of Work</td>
+                    <td class="p-0">08/12/2022</td>
+                  </tr>
+                  <tr>
+                    <td class="p-0">Payment Date:</td>
+                    <td class="p-0"></td>
+                  </tr>
+                  <tr>
+                    <td class="p-0">Payment Method:</td>
+                    <td class="p-0"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered text-1 table-sm table-striped">
+            <tbody class="text-center">
+              <tr>
+                <td class="col-2">Registration</td>
+                <td class="col-2">Make</td>
+                <td class="col-2">Model</td>
+                <td class="col-2">Chassis Number</td>
+                <td class="col-2">Mileage</td>
+              </tr>
+              <tr>
+                <td class="fw-500 text-dark">{{ factors.register }}</td>
+                <td class="fw-500 text-dark">{{ factors.make }}</td>
+                <td class="fw-500 text-dark">A5 S5 Tfsi Quattro</td>
+                <td class="fw-500 text-dark">WAUZZZF5XJA085779</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="col-2">Engin No</td>
+                <td class="col-2">Engin Code</td>
+                <td class="col-2">Key Code</td>
+                <td class="col-2">Rate Reg</td>
+                <td class="col-2">Paint Code</td>
+              </tr>
+
+              <tr>
+                <td class="fw-500 text-dark">CWGD067945</td>
+                <td class="fw-500 text-dark">CWGD</td>
+                <td></td>
+                <td class="fw-500 text-dark">30/05/2018</td>
+                <td class="fw-500 text-dark">P</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-responsive">
+          <table
+            class="table table-bordered text-1 table-sm table-striped Labour_table"
+          >
+            <tbody id="labourTableBody">
+              <tr>
+                <td class="col-5">MOT</td>
+                <td class="text-center">Qty</td>
+                <td class="text-end">Status</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <button class="Labour_table_add">+</button>
+        <div class="table-responsive">
+          <table
+            class="table table-bordered text-1 table-striped table-sm Parts_table"
+          >
+            <thead>
+              <tr style="background-color: rgba(0, 0, 0, 0.05)">
+                <td class="col-4">Parts</td>
+                <td class="text-center">Part No</td>
+                <td class="text-center">Qty</td>
+                <td class="text-center">Unit</td>
+                <td class="text-center">D</td>
+                <td class="text-end">Sub Total</td>
+              </tr>
+            </thead>
+            <tbody id="tablePartsBody">
+              <tr></tr>
+            </tbody>
+          </table>
+        </div>
+        <button class="Parts_table_add">+</button>
+        <div class="row justify-content-end">
+          <div class="col-md-7 col-lg-5">
+            <div class="table-responsive">
+              <table class="table table-bordered text-1 table-sm p-0">
+                <tbody>
+                  <tr>
+                    <td class="p-1">Parts</td>
+                    <td class="p-1" id="resultParts">0</td>
+                  </tr>
+                  <tr>
+                    <td class="p-1">SubTotal</td>
+                    <td class="p-1" id="resultSubtotal">0</td>
+                  </tr>
+                  <tr>
+                    <td class="fw-500 text-dark p-1">MOT</td>
+                    <td class="p-1">
+                      <label style="width: 100%;">
+                        <input id="inputOfMOT" oninput="renderList()" type="text" style="text-align: left!important;width: 100%;" value="0">
+                      </label>
+                    </td>
+                  </tr>
+                  <tr style="background-color: rgba(0, 0, 0, 0.05)">
+                    <td class="fw-500 text-dark p-1">Total</td>
+                    <td class="p-1" id="resultTotal"></td>
+                  </tr>
+                  <tr>
+                    <td class="fw-500 text-dark p-1">Receipts</td>
+                    <td class="p-1">
+                      <label style="width: 100%;">
+                        <input id="inputOfReceipts" oninput="renderList()" type="text" style="text-align: left!important;width: 100%;" value="0">
+                      </label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="fw-500 text-dark p-1">Balance</td>
+                    <td class="p-1" id="resultBalance">0</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer class="text-center mt-5 pt-5">
+        <hr />
+      </footer>
+    </div>
+
+    <script>
+      const partsTableBodyElem = document.getElementById("tablePartsBody");
+      const partsTableRows = [];
+
+      const labourTableBodyElem = document.getElementById("labourTableBody");
+
+      document
+        .querySelector(".Labour_table_add")
+        .addEventListener("click", () => {
+          labourTableBodyElem.innerHTML += `
+            <tr>
+                <td class="col-5">
+                    <input type="text" style="max-width: 100%;width: 100%"  />
+                </td>
+                <td>
+                    <input type="text" style="max-width: 100%;width: 100%;"  />
+                </td>
+                <td class="fw-500 text-dark text-end">
+                    <input type="text" style="max-width: 100%;width: 100%"  />
+                </td>
+            </tr>
+          `;
+        });
+
+      document
+        .querySelector(".Parts_table_add")
+        .addEventListener("click", () => {
+          partsTableRows.push({
+            partName: "",
+            partNo: "",
+            quantity: 1,
+            unit: 0,
+            d: "",
+          });
+          renderParts()
+        });
+
+      function renderParts() {
+        partsTableBodyElem.innerHTML = "<tr></tr>";
+        partsTableBodyElem.innerHTML += partsTableRows
+          .map(
+            (row, idx) => `
+         <tr>
+          <td class="col-5">
+            <input type="text" style="max-width: 100%" value="${
+              row.partName
+            }" />
+          </td>
+          <td class="fw-500 text-dark text-center">
+            <input type="text" style="max-width: 100%" value="${row.partNo}" />
+          </td>
+          <td class="fw-500 text-dark text-end">
+            <input type="text" style="max-width: 100%" oninput="changeParts(${idx}, 'quantity', this)" value="${
+              row.quantity
+            }" />
+          </td>
+          <td><input type="text" style="max-width: 100%" oninput="changeParts(${idx}, 'unit', this)" value="${
+            row.unit
+          }"/></td>
+          <td class="fw-500 text-dark text-end">
+            <input type="text" style="max-width: 100%" value="${row.d}" />
+          </td>
+          <td class="fw-500 text-dark text-end">
+            <input type="text" style="max-width: 100%" id="subtotalPart${idx}" value="${
+              row.quantity * row.unit
+            }" />
+          </td>
+        </tr>`
+          )
+          .join("");
+      }
+
+      function changeParts(indexNum = -1, name, elem) {
+        const partRow = partsTableRows.find((part, index) => index === indexNum)
+        if (!partRow) throw new Error("failed to update ui");
+
+        if (typeof partRow[name] === 'undefined') throw new Error("failed to update ui");
+
+        if(name === 'quantity' || name === 'unit') {
+          partRow[name] = +elem.value;
+          partRow['subtotal'] = partRow.quantity * partRow.unit;
+          document.querySelector(`#subtotalPart${indexNum}`).value = partRow['subtotal'];
+        }  else {
+          partRow[name] = elem.value
+        }
+
+        renderList()
+      }
+
+      function renderList() {
+        const receiptsElem = document.getElementById('inputOfReceipts')
+        const motInputElem = document.getElementById('inputOfMOT');
+        const allSubs = partsTableRows.reduce((pValue, currentValue) => pValue+currentValue.subtotal, 0);
+        const total = allSubs + +motInputElem.value;
+
+        document.getElementById('resultSubtotal').innerHTML = allSubs
+        document.getElementById('resultParts').innerHTML = allSubs
+        document.getElementById('resultTotal').innerText = total
+        document.getElementById('resultBalance').innerText = String(total - Number(receiptsElem.value));
+      }
+
+      renderList()
+
+      // $(document).ready(function () {
+      //   $(".Labour_table_add").click(function () {
+      //     $(
+      //             "<tr><td class='col-5'><input type='text' style='max-width:100%' /></td><td class='fw-500 text-dark text-center'><input type='text' style='max-width:100%'/></td><td class='fw-500 text-dark text-end'><input type='text' style='max-width:100%'/></td><td><input type='text' style='max-width:100%'/></td><td class='fw-500 text-dark text-end'><input type='text' style='max-width:100%'/></td></tr>"
+      //     ).insertAfter(".Labour_table tr:last-child");
+      //   });
+      //
+      //   $(".Parts_table_add").click(function () {
+      //     $(
+      //             "<tr><td class='col-5'><input type='text' style='max-width:100%'/></td><td class='fw-500 text-dark text-center'><input type='text' style='max-width:100%'/></td><td class='fw-500 text-dark text-end'><input type='text' style='max-width:100%'/></td><td><input type='text' style='max-width:100%'/></td><td class='fw-500 text-dark text-end'><input type='text' style='max-width:100%'/></td><td class='fw-500 text-dark text-end'><input type='text' style='max-width:100%'/></td></tr>"
+      //     ).insertAfter(".Parts_table tr:last-child");
+      //   });
+      // });
+    </script>
+  </body>
+</html>

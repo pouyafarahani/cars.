@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>factors</title>
+</head>
+<body>
+
+<div>
+    <h1>factors:</h1>
+    {% for factor in factors %}
+        <div class="div" style="border: #0a53be solid 2px; margin-top: 7px; margin-bottom: 4px">
+            <h1>{{ factor.make }}</h1>
+            <p3>code Posti: {{ factor.register }}</p3>
+            <br>
+            <button style="background-color: green; margin: 10px; cursor: pointer"><a href="{{ factor.get_absolute_url }}">Factor</a></button>
+        </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>

@@ -1,0 +1,801 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+
+    <!-- link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        .reserv_div select {
+            -webkit-tap-highlight-color: transparent;
+            border-radius: 2px;
+            border: solid 1px rgb(105, 104, 104);
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            clear: both;
+            cursor: pointer;
+
+            align-items: center;
+            float: left;
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: normal;
+            height: 50px;
+            width: 32%;
+            outline: none;
+            padding-left: 0px;
+            padding-right: 5px;
+            position: relative;
+            text-align: left !important;
+            -webkit-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            white-space: nowrap;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0);
+            color: rgba(255, 255, 255, 0.6);
+
+        }
+
+        .reserv_div select:nth-child(1) {
+            display: flex;
+        }
+
+        .reserv_div select:nth-child(2) {
+            display: flex;
+        }
+
+        .reserv_div select:nth-child(3) {
+            display: flex;
+        }
+
+        .reserv_div select:nth-child(4) {
+            display: none;
+        }
+
+        .reserv_div select option {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} fade show" role="alert">
+        <strong></strong> {{ message }}
+    </div>
+    <div class="wrapper">
+        {% endfor %}
+        {% endif %}
+        <div class="wrapper">
+
+            <!-- header -->
+            <header>
+                <div class="desktop-header">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-4">
+                                <div><a href="" class="logo"><img
+                                            src="{% static 'img/photo_2023-01-14_00-52-24-removebg-preview.png' %}"
+                                            alt=""></a>
+                                </div>
+                            </div>
+                            <div class="col-8">
+                                <div class="navigation">
+                                    <nav>
+                                        <ul>
+                                            <li class=""><a href="{% url 'pages:home' %}">Home</a></li>
+                                            <li><a href="{% url 'reservations:contact' %}">contact us</a></li>
+                                        </ul>
+                                    </nav>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- mobile-header -->
+                <div class="mobile-header">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-2">
+                                <div><a href="" class="logo"><img
+                                            src="{% static 'img/photo_2023-01-14_00-52-24-removebg-preview.png' %}"
+                                            alt=""></a>
+                                </div>
+                            </div>
+                            <div class="col-10 text-end">
+                                <div>
+                                    <div id="hamburger" onclick="this.classList.toggle('open');">
+                                        <svg width="50" height="50" viewBox="0 0 100 100">
+                                            <path class="line line1"
+                                                d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                                            <path class="line line2" d="M 20,50 H 80" />
+                                            <path class="line line3"
+                                                d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+                                        </svg>
+                                    </div>
+
+                                    <div class="navigation-manu">
+                                        <div class="d-flex align-items-center">
+
+                                        </div>
+                                        <ul>
+                                            <li class=""><a href="{% url 'pages:home' %}">Home</a></li>
+                                            <li><a href="{% url 'reservations:contact' %}">contact us</a></li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </header>
+            <!-- header -->
+
+            <!-- stat hero -->
+
+            <section class=""
+                style="background-image: url({% static 'img/booking-cars-bg.jpg' %});background-size: cover;">
+                <div class="container">
+                    <div class="texts mt-5 wow slideInUp">
+                        <h2>Make your booking</h2>
+                        <p class="text-danger"><a href="" class="text-white">Home /</a> Booking
+                        </p>
+                    </div>
+
+                    <form action="{% url 'reservations:rezerv' %}" class="book-form p-0" method="post"
+                        style="background-color: transparent;width: 100%;">
+                            <!--  {% csrf_token %} -->
+                        <div class="row g-4 p-0" style="background-color: rgba(21, 22, 22, 0.6);">
+                            <div class="col-12 col-md-9">
+                                
+<!-- نمیدونم باید بعد از تگ فرم باشه یا نه اگر باید بعد از فرم باشه بزارش اونجا 👇🏻  -->
+                                {% csrf_token %}
+<!-- نمیدونم باید بعد از تگ فرم باشه یا نه اگر باید بعد از فرم باشه بزارش اونجا 👆🏻  -->
+
+                                <div>
+                                    <p class="mb-0 text-white">please select a service for your <strong
+                                            class="text-success">{{ make }}
+                                            - {{ register }}</strong></p>
+                                </div>
+                                <div hidden>
+                                    <input type="text" value="{{ make }}" name="make">
+                                    <input type="text" value="{{ register }}" name="register">
+                                </div>
+                                <div class="row row-cols-1 row-cols-md-3 p-3 mt-3 border-bottom" id="servicess">
+                                    <div class="col">
+
+                                        <div class="service-item-select">
+                                            <div>
+                                                <input type="checkbox" class="Full_service" value="Full service"
+                                                    name="Full_service" />
+                                                <label for="service-1" class="text-white">Full service <i
+                                                        class="fa-solid fa-screwdriver-wrench"></i></label>
+                                            </div>
+                                            <div>
+                                                <del class="text-white"></del>
+                                                <span class="price"><strong>£
+                                                    </strong>{{ FullService }}</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col">
+
+                                        <div class="service-item-select">
+                                            <div>
+                                                <input type="checkbox" class="Interim_service" value="Interim service"
+                                                    name="Interim_service" />
+                                                <label for="service-1" class="text-white">Interim service <i
+                                                        class="fa-solid fa-wrench"></i></label>
+                                            </div>
+                                            <div>
+                                                <del class="text-white"></del>
+                                                <span class="price"><strong>£
+                                                    </strong class="InterimService">{{ InterimService }}</span>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col">
+
+                                        <div class="service-item-select">
+                                            <div>
+                                                <input type="checkbox" class="Add_a_mot" value="Add a mot"
+                                                    name="Add_a_mot" />
+                                                <label for="service-1" class="text-white">Add a mot <i
+                                                        class="fa-sharp fa-solid fa-table-list"> </i></label>
+                                            </div>
+                                            <div>
+                                                <del class="text-white"></del>
+                                                <span class="price"><strong>£
+                                                    </strong>40</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="row p-2 pt-4 pb-4">
+                                    <div class="col" id="checkbox">
+                                        <div class="mb-3">
+                                            <p class="mb-0 text-white">Which one do you want to <strong
+                                                    class="text-success">fix?</strong></p>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+
+                                            <input class="" name="Wheelaligment" type="checkbox" id="inlineCheckbox1"
+                                                value="Wheelaligment">
+                                            <label class="form-check-label" for="inlineCheckbox1">Wheelaligment</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="" name="Diagnose" type="checkbox" id="inlineCheckbox2"
+                                                value="Diagnose">
+                                            <label class="form-check-label" for="inlineCheckbox2">Diagnose</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="" name="Tyres" type="checkbox" id="inlineCheckbox1"
+                                                value="Tyres">
+                                            <label class="form-check-label" for="inlineCheckbox1">Tyres</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="" name="Clutches" type="checkbox" id="inlineCheckbox1"
+                                                value="Clutches">
+                                            <label class="form-check-label" for="inlineCheckbox1">Clutches</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="" name="Suspension" type="checkbox" id="inlineCheckbox2"
+                                                value="Suspension">
+                                            <label class="form-check-label" for="inlineCheckbox2">Suspension</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="" name="Cambelt" type="checkbox" id="inlineCheckbox2"
+                                                value="Cambelt">
+                                            <label class="form-check-label" for="inlineCheckbox2">Cambelt</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="" name="Exhaust" type="checkbox" id="inlineCheckbox2"
+                                                value="Exhaust">
+                                            <label class="form-check-label" for="inlineCheckbox2">Exhaust</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="" name="Brakes" type="checkbox" id="inlineCheckbox2"
+                                                value="Brakes">
+                                            <label class="form-check-label" for="inlineCheckbox2">Brakes</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="" name="Batteries" type="checkbox" id="inlineCheckbox2"
+                                                value="Batteries">
+                                            <label class="form-check-label" for="inlineCheckbox2">Batteries</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="" name="other" type="checkbox" id="other" value="other"
+                                                data-toggle="collapse">
+                                            <label class="form-check-label" for="other">other</label>
+                                        </div>
+                                        <div id="checkout_coupon" class="collapse mt-3" data-parent="#accordion">
+                                            <div class="checkout_info coupon_info">
+                                                <textarea class="pt-3" name="" id="" rows="4"
+                                                    placeholder="Anything else?"></textarea>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="row p-2 bg-success">
+                                    <div class="col">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div>
+                                                <h4>Total</h4>
+                                            </div>
+                                            <div>
+                                                <h6 class="total_price">£0</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- contact -->
+                                <div class="mt-5 mb-4">
+                                    <h3 class="font">Fill your details</h3>
+                                </div>
+                                {% if forms.errors %}
+                                <div class="">
+                                    {{ forms.errors }}
+                                </div>
+                                {% endif %}
+
+                                <div class="row p-3 mt-3 g-4">
+                                    <div class="col-12 col-md-12">
+                                        <div class="reserv_div" style="display:flex;justify-content: space-between;">
+
+                                            <select id="sal" class="sal" name="sallist">
+                                                <option value="0000">Select Year</option>
+                                                <option value="2023">2023</option>
+                                                <option value="2024">2024</option>
+                                            </select>
+
+                                            <select class="mah" id="mah" name="mahlist">
+
+                                            </select>
+
+                                            <select id="rooz" class="rooz" name="roozlist">
+                                            </select>
+
+                                            <select id="time" class="time showtime" name="timelist">
+                                            </select>
+                                        </div>
+
+
+                                    </div>
+
+
+                                    <div class="col-12 col-md-6">
+                                        <div>
+                                            <input type="text" placeholder="First Name" name="Firstname" class="inp">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6"><input type="text" name="Lastname"
+                                            placeholder="Last Name" class="inp">
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div>
+                                            <input type="text" placeholder="Mobile: 078828063023" class="inp"
+                                                name="PhoneNumber">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-md-6">
+                                        <div>
+                                            <input type="email" placeholder="Email address" name="Email" class="inp">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12" hidden>
+                                        <textarea class="pt-3" name="Anything" id="" rows="5"
+                                            placeholder="Anything else?"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-2 ps-4">
+                                    <div class="col" hidden>
+                                        <div>
+                                            <div class="form-check d-flex align-items-start">
+                                                <input class="" type="checkbox" value="" id="flexCheckChecked">
+                                                <label class="form-check-label" for="flexCheckChecked">
+                                                    <a href="">Collect</a> and
+                                                    <a href="">Delivery</a>
+                                                    for free .
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--
+                                <div class="row mt-4">
+                                    <div class="col text-center">
+                                        <div class="col-md-5 m-auto">
+                                            <button type="submit" class="btn blue">Book Now</button>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                            <div class="col-12 col-md-3 pb-4 ps-4 pe-4 ps-md-0 pe-md-0 m-auto mt-md-5 pt-md-5">
+                                <div class="row p-3 mt-md-4">
+                                    <div class="col">
+                                        <h4 class="mb-0 text-white border-bottom pb-3">Service Details</h4>
+                                        <div class="text-white mt-3">
+                                            <div class="d-flex">
+                                                <p class="service-items"
+                                                    style="text-transform: uppercase;font-size: 16px;"></p>
+                                                <span class="mot me-2 ms-2"
+                                                    style="text-transform: uppercase;font-size: 16px;"></span>
+                                            </div>
+                                            <p class="fix-items" style="line-break: anywhere;">
+                                            </p>
+                                            <p class="date" style="overflow: hidden;"></p>
+                                            <p class="total_price"></p>
+                                            <div class="col-12 m-auto mt-5">
+                                                <button type="submit" class="btn blue">Book Now</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </section>
+
+            <!-- end hero -->
+
+        </div>
+
+
+        {#<!-- script -->#}
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+        <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'js/plugins.js' %}"></script>
+        <script src="{% static 'js/script.js' %}"></script>
+        <script>
+            // wow
+            new WOW().init();
+            //niceSelect
+            $('.select_option').niceSelect();
+
+            $("input:checkbox").on('click', function () {
+                // in the handler, 'this' refers to the box clicked on
+                var $box = $(this);
+                if ($box.is(":checked")) {
+                    // the name of the box is retrieved using the .attr() method
+                    // as it is assumed and expected to be immutable
+                    var group = "input:checkbox[name='" + $box.attr("name") + "']";
+                    // the checked state of the group/box on the other hand will change
+                    // and the current value is retrieved using .prop() method
+                    $(group).prop("checked", false);
+                    $box.prop("checked", true);
+                } else {
+                    $box.prop("checked", false);
+                }
+            });
+
+
+            // collps
+            $('#other').click(function () {
+                $('#checkout_coupon').toggleClass('show');
+            });
+
+            var gh = [];
+            $('#checkbox').on('change', 'input[type=checkbox]', function () {
+
+                var id = $(this).val(); // this gives me null
+                var index = gh.indexOf(id);
+
+                if ($(this).is(':checked')) {
+                    gh.push(id);
+                    document.querySelector(".fix-items").innerHTML = gh;
+                }
+                else {
+                    if (index > -1) {
+                        gh.splice(index, 1);
+                        document.querySelector(".fix-items").innerHTML = gh;
+                    }
+                }
+                console.log(gh);
+            });
+
+            // service
+            // var reserveTime = [];
+            // $('#servicess input[type=checkbox]').on('click', function () {
+
+            //     var id = $(this).val(); // this gives me null
+            //     var index = reserveTime.indexOf(id);
+
+            //     if ($(this).is(':checked')) {
+            //         reserveTime.push(id);
+            //         document.querySelector(".service-items").innerHTML = reserveTime;
+            //     }
+            //     else {
+            //         if (index > -1) {
+            //             reserveTime.splice(index, 1);
+            //             document.querySelector(".service-items").innerHTML = reserveTime;
+
+            //         }
+            //     }
+
+
+            //     console.log(reserveTime);
+            // });
+
+
+            // time
+            let dates = document.querySelector('.date')
+
+            $('select').change(function () {
+                dates.innerHTML = $('select#rooz > option:selected').text() + $('select#mah > option:selected').text() + $('select#sal > option:selected').text() + '' + ' : ' + '' + $('select#time > option:selected').text();
+
+            })
+
+
+
+        </script>
+        <script>
+
+            $(document).ready(function () {
+
+
+                var dayOfTheWeek = (day, month, year) => {
+                    const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                    return weekday[new Date(`${month}/${day}/${year}`).getDay()];
+                };
+
+
+                $('.Full_service').on('click', function (e) {
+                    if ($('.Full_service').is(':checked')) {
+                        $('.Interim_service').prop('checked', false);
+                        document.querySelector(".service-items").innerHTML = $('.Full_service').val() + ',';
+                        price = $('.total_price').text().split("£");
+                        if (parseInt(price[1]) == 180 || parseInt(price[1]) == 140) {
+                            price = parseInt(30) + parseInt(price[1])
+                        } else {
+                            price = parseInt(170) + parseInt(price[1])
+                        }
+
+                        $('.total_price').text('£' + price.toString())
+                    } else {
+                        document.querySelector(".service-items").innerHTML = ''
+                        price = $('.total_price').text().split("£");
+                        price = Math.abs(parseInt(170) - parseInt(price[1]))
+                        $('.total_price').text('£' + price.toString())
+                    }
+
+
+                })
+
+
+                $('.Interim_service').on('click', function (e) {
+                    if ($('.Interim_service').is(':checked')) {
+                        $('.Full_service').prop('checked', false);
+                        document.querySelector(".service-items").innerHTML = $('.Interim_service').val() + ',';
+                        price = $('.total_price').text().split("£");
+                        if (parseInt(price[1]) == 210 || parseInt(price[1]) == 170) {
+                            price = Math.abs(parseInt(30) - parseInt(price[1]))
+                        } else {
+                            price = parseInt(140) + parseInt(price[1])
+                        }
+
+                        $('.total_price').text('£' + price.toString())
+                    } else {
+                        document.querySelector(".service-items").innerHTML = ''
+
+                        price = $('.total_price').text().split("£");
+                        price = Math.abs(parseInt(140) - parseInt(price[1]))
+                        $('.total_price').text('£' + price.toString())
+                    }
+
+                })
+
+
+                $('.Add_a_mot').on('click', function (e) {
+                    rr = $('.rooz')
+                    rr.empty()
+                    rr = $('.time')
+                    rr.empty()
+                    rr = $('.mah')
+                    rr.empty()
+                    $('.sal').val('0000')
+                    if ($('.Add_a_mot').is(':checked')) {
+                        document.querySelector(".mot").innerHTML = $('.Add_a_mot').val()
+
+                        price = $('.total_price').text().split("£");
+
+                        $('.reserv_div select:nth-child(4)')[0].style.setProperty('display', 'flex', 'important');
+                        $('.reserv_div select').css("width", "23%");
+
+                        price = parseInt(40) + parseInt(price[1])
+                        $('.total_price').text('£' + price.toString())
+                    } else {
+                        document.querySelector(".mot").innerHTML = ''
+
+                        $('.reserv_div select:nth-child(4)')[0].style.setProperty('display', 'none', 'important');
+                        $('.reserv_div select').css("width", "32%");
+                        price = $('.total_price').text().split("£");
+                        price = Math.abs(parseInt(40) - parseInt(price[1]))
+                        $('.total_price').text('£' + price.toString())
+                    }
+
+                })
+
+                function get_month_number(m) {
+                    a = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+                    return (a.indexOf(m) + 1)
+                }
+
+
+                $('.sal').on('change', function (e) {
+
+
+                    rr = $('.rooz')
+                    rr.empty()
+                    rr = $('.time')
+                    rr.empty()
+                    rr = $('.mah')
+                    rr.empty()
+                    if (e.target.value != "0000") {
+                        $.ajax({
+                            method: "POST",
+                            url: "/checkyear",
+                            data: { checkyear: e.target.value },
+
+                        })
+                            .done(function (msg) {
+                                var month_cantbee = msg['month']
+                                rr = $('.mah')
+                                rr.empty()
+                                if (month_cantbee.length < 2){
+                                    rr.append(`<option value="0000">
+                                        All times are full
+                                        </option>`); 
+                                }else{
+                                    for (var i = 0; i < month_cantbee.length + 1; i++) {
+                                        if (i == 0) {
+                                            rr.append(`<option value="0000">
+                                                Select Month
+                                                </option>`);
+                                        } else {
+                                            rr.append(`<option value="${get_month_number(month_cantbee[i - 1])}">
+                                                ${month_cantbee[i - 1]}
+                                                </option>`);
+                                        }
+                                    }
+                                }
+
+                            });
+
+                    }
+
+
+                })
+
+
+                /**** mah */
+
+                $('.mah').on('change', function (e) {
+                    if ($('.Add_a_mot').is(':checked')) {
+                        year = $('#sal').val()
+
+                        rr = $('.rooz')
+                        rr.empty()
+                        rr = $('.time')
+                        rr.empty()
+
+                        $.ajax({
+                            method: "POST",
+                            url: "/checkmounth",
+                            data: { mounth: e.target.value, year: year },
+
+                        })
+                            .done(function (msg) {
+                                var freedays = msg['freeday']
+                                rr = $('.rooz')
+                                rr.empty()
+                                
+                                for (var i = 0; i < freedays.length + 1; i++) {
+                                    if (i == 0) {
+                                        rr.append(`<option value="0000">
+                                        Select Day
+                                        </option>`);
+                                    } else {
+                                        day_of_week2 = dayOfTheWeek(freedays[i - 1], e.target.value, year);
+                                        if (day_of_week2 == 'Sunday') {
+                                            continue;
+                                        } else {
+                                            rr.append(`<option value="${freedays[i - 1]}">
+                                            ${freedays[i - 1]}
+                                            </option>`);
+                                        }
+
+                                    }
+
+                                }
+                            });
+                    } else {
+                        year = $('#sal').val()
+
+                        rr = $('.rooz')
+                        rr.empty()
+                        rr = $('.time')
+                        rr.empty()
+                        $.ajax({
+                            method: "POST",
+                            url: "/checkmounth_2",
+                            data: { mounth: e.target.value, year: year },
+
+                        })
+                            .done(function (msg) {
+                                var freedays = msg['freeday']
+                                rr = $('.rooz')
+                                rr.empty()
+                                for (var i = 0; i < freedays.length + 1; i++) {
+                                    if (i == 0) {
+                                        rr.append(`<option value="0000">
+                                        Select Day
+                                        </option>`);
+                                    } else {
+                                        day_of_week2 = dayOfTheWeek(freedays[i - 1], e.target.value, year)
+                                        if (day_of_week2 == 'Sunday') {
+                                            continue;
+                                        } else {
+                                            rr.append(`<option value="${freedays[i - 1]}">
+                                            ${freedays[i - 1]}
+                                            </option>`);
+                                        }
+
+                                    }
+                                }
+                            });
+                    }
+
+                })
+
+
+                /**** rooooz ****/
+                $('.rooz').on('change', function (e) {
+
+                    if ($('.Add_a_mot').is(':checked')) {
+
+                        year = $('#sal').val()
+                        mah = $('#mah').val()
+                        rr = $('.time')
+                        rr.empty()
+
+                        Saturday_times_of = ['15:00', '16:00', '17:00']
+                        $.ajax({
+                            method: "POST",
+                            url: "/checkrooztime",
+                            data: { rooz: e.target.value, year: year, mah: mah },
+
+                        })
+                            .done(function (msg) {
+                                var freetime = msg['freetime']
+                                rr = $('.time')
+                                rr.empty()
+
+                                for (var i = 0; i < freetime.length + 1; i++) {
+                                    if (i == 0) {
+                                        rr.append(`<option value="0000">
+                                        Select Time
+                                        </option>`);
+                                    } else {
+                                        day_of_week1 = dayOfTheWeek(e.target.value, mah, year)
+                                        if (day_of_week1 == 'Saturday' && Saturday_times_of.includes(freetime[i - 1])) {
+                                            break;
+                                        } else {
+                                            rr.append(`<option value="${freetime[i - 1]}">
+                                            ${freetime[i - 1]}
+                                            </option>`);
+                                        }
+
+                                    }
+                                }
+                            });
+                    }
+
+                })
+
+            })
+        </script>
+</body>
+
+</html>

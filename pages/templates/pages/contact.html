@@ -1,0 +1,206 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block error %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} fade show" role="alert">
+                <strong></strong> {{ message }}
+            </div>
+            <div class="wrapper">
+        {% endfor %}
+    {% endif %}
+{% endblock error %}
+
+{% block body %}
+
+    <!-- stat hero -->
+
+    <section class="contacts position-relative"
+             style="background-image: url({% static 'img/bredcrumb-bg.png' %});background-size: cover;background-position: center;">
+        <div class="container">
+            <div class="texts mt-5 wow slideInUp">
+                <h2>contact</h2>
+                <p class="text-danger"><a href="" class="text-white">Home /</a> contact
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- end hero -->
+
+    <!-- start contact -->
+
+    <section class="p-md-5">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="section-title text-center">
+                        <h2 class="text-center">Needs Help? Let's Get In Touch</h2>
+                        <p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                            tempor
+                            incididunt ut labore <br> et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row bg-white shadow">
+                <div class="col-lg-6 m-b30 p-0 m-0">
+                    <div class="contact-form-inner bg-overlay-2"
+                         style="background-image: url({% static 'img/-5926994838178347510_121.jpg' %});">
+                        <div class="section-title mb-4">
+                            <h2 class="title text-white">Get In Touch</h2>
+                        </div>
+                        <div class="media single-contact-info">
+                            <div class="media-left thumb">
+                                <img src="{% static 'img/location.png' %}" alt="img">
+                            </div>
+                            <div class="media-body details">
+                                <h3>Our Location</h3>
+                                <p>1 Standford St, Southampton SO145FN,</p>
+                                <p>United Kingdom</p>
+                            </div>
+                        </div>
+                        <div class="media single-contact-info">
+                            <div class="media-left thumb">
+                                <img src="{% static 'img/phone.png' %}" alt="img">
+                            </div>
+                            <div class="media-body details">
+                                <h3>Contact Us</h3>
+                                <p>023 8063 7682</p>
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="media single-contact-info">
+                            <div class="media-left thumb">
+                                <img src="{% static 'img/envelope.png' %}" alt="img">
+                            </div>
+                            <div class="media-body details">
+                                <h3>Contact Email</h3>
+                                <p>Easyfitltd@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="p-4 clearfix m-b30 ">
+                        <h2 class="mb-4">Opening Time</h2>
+                        <div class="dzFormMsg"></div>
+                        <div>
+                            <section class="openinghours ">
+                                <div class="openinghourscontent section ">
+                                    <table class="opening-hours-table">
+                                        <tr id="Monday" itemprop="openingHours" title="Open Monday at 9am to 6pm">
+                                            <td>Monday</td>
+                                            <td class="opens">08:00</td>
+                                            <td>-</td>
+                                            <td class="closes">18:00</td>
+                                            <td class="text-success">open</td>
+                                        </tr>
+                                        <tr id="Tuesday" itemprop="openingHours" title="Open Tuesday at 9am to 6pm">
+                                            <td>Tuesday</td>
+                                            <td class="opens">08:00</td>
+                                            <td>-</td>
+                                            <td class="closes">18:00</td>
+                                            <td class="text-success">open</td>
+                                        </tr>
+                                        <tr id="Wednesday" itemprop="openingHours" title="Open Wednesday at 9am to 6pm">
+                                            <td>Wednesday</td>
+                                            <td class="opens">08:00</td>
+                                            <td>-</td>
+                                            <td class="closes">18:00</td>
+                                            <td class="text-success">open</td>
+                                        </tr>
+                                        <tr id="Thursday" itemprop="openingHours" title="Open Thursday at 9am to 8pm">
+                                            <td>Thursday</td>
+                                            <td class="opens">08:00</td>
+                                            <td>-</td>
+                                            <td class="closes">18:00</td>
+                                            <td class="text-success">open</td>
+                                        </tr>
+                                        <tr id="Friday" itemprop="openingHours" title="Open Friday at 9am to 6pm">
+                                            <td>Friday</td>
+                                            <td class="opens">08:00</td>
+                                            <td>-</td>
+                                            <td class="closes">18:00</td>
+                                            <td class="text-success">open</td>
+                                        </tr>
+                                        <tr id="Saturday" itemprop="openingHours" title="Open Saturday at 10am to 6pm">
+                                            <td>Saturday</td>
+                                            <td class="opens">08:00</td>
+                                            <td>-</td>
+                                            <td class="closes">15:00</td>
+                                            <td class="text-success">open</td>
+                                        </tr>
+
+                                        <tr id="Sunday" itemprop="openingHours" title="Open Sunday at 11am to 4pm">
+                                            <td>Sunday</td>
+                                            <td class="opens opacity-0">11:00</td>
+                                            <td>-</td>
+                                            <td class="closes opacity-0">16:00</td>
+                                            <td class="text-danger">close</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- end contact -->
+
+
+    <!-- map -->
+    <div>
+        <div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2516.141497771638!2d-1.3948930837760942!3d50.90259787954025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4874714bcc5fbae5%3A0x8e3a2365b2d3afa6!2sEasyFit%20MOT%20Ltd!5e0!3m2!1sen!2s!4v1676127526088!5m2!1sen!2s"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+
+    </div>
+
+
+
+    <!-- script -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script>
+        // wow
+        new WOW().init();
+        //niceSelect
+        $('.select_option').niceSelect();
+
+        $("input:checkbox").on('click', function () {
+            // in the handler, 'this' refers to the box clicked on
+            var $box = $(this);
+            if ($box.is(":checked")) {
+                // the name of the box is retrieved using the .attr() method
+                // as it is assumed and expected to be immutable
+                var group = "input:checkbox[name='" + $box.attr("name") + "']";
+                // the checked state of the group/box on the other hand will change
+                // and the current value is retrieved using .prop() method
+                $(group).prop("checked", false);
+                $box.prop("checked", true);
+            } else {
+                $box.prop("checked", false);
+            }
+        });
+
+
+        // collps
+        $('#other').click(function () {
+            $('#checkout_coupon').toggleClass('show');
+        });
+
+    </script>
+{% endblock body %}

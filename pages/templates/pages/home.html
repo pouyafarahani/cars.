@@ -1,0 +1,110 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block error %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} fade show" role="alert">
+                <strong></strong> {{ message }}
+            </div>
+            <div class="wrapper">
+        {% endfor %}
+    {% endif %}
+{% endblock error %}
+
+{% block body %}
+
+
+    <!-- stat hero -->
+
+    <section class="p-0">
+        <div class="bg-image">
+            <div class="hero-details wow slideInUp">
+                <h1>mot centre <span>and</span> car repairing . </h1>
+                <p>
+                    ✔ Book now,don't pay until the day
+                </p>
+            </div>
+
+
+            <div class="form wow slideInRight">
+                <form class="booking-widget white-text" style="cursor:default" action="{% url 'pages:home' %}"
+                      method="post">
+                    {% csrf_token %}
+                    <div hidden>
+                        <input name="FullService" value="150">
+                        <input name="mot" value="200">
+                    </div>
+                    <div>
+                        <div class="bw-input vrm-input"><label>
+                            <div style="position:relative"><input name="tag" maxlength="100" required=""
+                                                                  type="text" aria-label="Vehicle Registration" value=""
+                                                                  class="invalid"
+                                                                  placeholder="Vehicle Registration"><span
+                                    style="display: inline-block; color: rgb(233, 29, 17); text-align: left; font-size: 16px; font-weight: 700; background-color: rgb(255, 255, 255); padding: 4px; margin-top: 4px; margin-bottom: 4px; border-radius: 3px;">
+                            </div>
+                        </label></div>
+                        <div class="bw-input postcode-input"><label><span
+                                style="display:none;margin-bottom:2px">Enter
+                                        your postcode</span>
+                            <div style="position:relative"><input name="postal_code" maxlength="100"
+                                                                  placeholder="Enter your postcode" required=""
+                                                                  type="text"
+                                                                  aria-label="Enter your postcode" value=""
+                                                                  class="invalid"><span
+                                    style="display: inline-block; color: rgb(233, 29, 17); text-align: left; font-size: 16px; font-weight: 700; background-color: rgb(255, 255, 255); padding: 4px; margin-top: 4px; margin-bottom: 4px; border-radius: 3px;">
+                            </div>
+                        </label></div>
+                        <button type="submit" class="btn blue">Compare Prices Instantly</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- end hero -->
+
+    <!-- start contact-info -->
+
+    <section class="p-0">
+        <div class="contact-info">
+            <div>
+                <img src="https://angfuzsoft.com/wordpress/mechon/wp-content/uploads/2022/07/contact_1_1.svg" alt="">
+                <div>
+                    <p>WE ARE OPEN MONDAY-SATURDAY</p>
+                    <h3>8:00 am - 6:00 pm</h3>
+                </div>
+            </div>
+            <div>
+                <img src="https://angfuzsoft.com/wordpress/mechon/wp-content/uploads/2022/07/contact_1_2.svg" alt="">
+
+                <div>
+                    <p>HAVE A QUESTION?</p>
+                    <h3>023 8063 7682</h3>
+                </div>
+            </div>
+            <div>
+                <img src="https://angfuzsoft.com/wordpress/mechon/wp-content/uploads/2022/07/contact_1_3.svg" alt="">
+
+                <div>
+                    <p>NEED A REPAIR? OUR ADDRESS</p>
+                    <h3>1 Standford St, Southampton SO145FN, United Kingdom</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end contact-info -->
+
+    <!-- script -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script>
+        // wow
+        new WOW().init();
+
+    </script>
+{% endblock body %}
